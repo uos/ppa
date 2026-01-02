@@ -1,0 +1,74 @@
+Package: rmagine-core
+Version: 2.3.2
+Architecture: amd64
+Maintainer: Alexander Mock
+Installed-Size: 1911
+Depends: libeigen3-dev, libassimp-dev
+Filename: ./rmagine-core_2.3.2_amd64.deb
+Size: 201940
+MD5sum: dc6c09f2622a63be47e24954a8a4cd3d
+SHA1: 70d0532a5de315afcf937875efe2f0f38e29e79e
+SHA256: e15b7bde389ab2dfd38d41d723826191326abb27c27a635b839260037bcd1dc5
+Section: devel
+Priority: optional
+Description: Rmagine - 3D Range Sensor Simulation in Polygonal Maps via Ray Tracing for Embedded Hardware on Mobile Robots
+
+Package: rmagine-cuda
+Version: 2.3.2
+Architecture: amd64
+Maintainer: Alexander Mock
+Installed-Size: 14693
+Depends: rmagine-core
+Filename: ./rmagine-cuda_2.3.2_amd64.deb
+Size: 3037978
+MD5sum: 79230c0b851f0e8587d6550e2a5db541
+SHA1: 97b9dc175a6c4bcd250af57c76d2eda085203f25
+SHA256: fc368d462afd4e57f2cbf5f2349dc7a77e27545b7818dc00fd4eb4e83298d830
+Section: devel
+Priority: optional
+Description: Rmagine - 3D Range Sensor Simulation in Polygonal Maps via Ray Tracing for Embedded Hardware on Mobile Robots
+
+Package: rmagine-embree
+Version: 2.3.2
+Architecture: amd64
+Maintainer: Alexander Mock
+Installed-Size: 763
+Depends: rmagine-core
+Filename: ./rmagine-embree_2.3.2_amd64.deb
+Size: 90604
+MD5sum: 057e475142354d24c8268f32ecafe1f5
+SHA1: 223803a0771a3687d5644f81a2b01b7562736888
+SHA256: d5c0086e614c76b28288ab728357f1e991a2228c5504cabc96554051f215379a
+Section: devel
+Priority: optional
+Description: Rmagine - 3D Range Sensor Simulation in Polygonal Maps via Ray Tracing for Embedded Hardware on Mobile Robots
+
+Package: rmagine-optix
+Version: 2.3.2
+Architecture: amd64
+Maintainer: Alexander Mock
+Installed-Size: 1654
+Depends: rmagine-cuda
+Filename: ./rmagine-optix_2.3.2_amd64.deb
+Size: 164838
+MD5sum: a3f4472870dfe3b2d020ee4afee26d8f
+SHA1: d355bfa7d32e1693ef0bea169ecd46e6d293c38b
+SHA256: 0d394ca5d93ae825ea4d5f3a7b775ecc9775f95a5e19f3ffc97d65c61949e5cc
+Section: devel
+Priority: optional
+Description: Rmagine - 3D Range Sensor Simulation in Polygonal Maps via Ray Tracing for Embedded Hardware on Mobile Robots
+
+Package: rmagine-ouster
+Version: 2.3.2
+Architecture: amd64
+Maintainer: Alexander Mock
+Installed-Size: 125
+Filename: ./rmagine-ouster_2.3.2_amd64.deb
+Size: 12114
+MD5sum: e201a57132af1b5ce0cc8bb97c6c397b
+SHA1: e028c8c0aade074cf3eec681a0725f99fb1a5832
+SHA256: 410048aeb2a074a47e925c99778e8bfe84ddfeab108d1b7b8207177e5825db25
+Section: devel
+Priority: optional
+Description: Rmagine - 3D Range Sensor Simulation in Polygonal Maps via Ray Tracing for Embedded Hardware on Mobile Robots
+
