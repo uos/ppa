@@ -1,3 +1,18 @@
+Package: lvr2
+Version: 25.2.0
+Architecture: amd64
+Maintainer: jubraun@uos.de
+Installed-Size: 50399
+Depends: libboost-all-dev, libflann-dev, libgsl-dev, libeigen3-dev, libopenmpi-dev, openmpi-bin, ocl-icd-opencl-dev, freeglut3-dev, libhdf5-dev, liblz4-dev, libopencv-dev, libyaml-cpp-dev, libcgal-dev, libgdal-dev, libboost-filesystem1.83.0 (>= 1.83.0), libboost-iostreams1.83.0 (>= 1.83.0), libboost-program-options1.83.0 (>= 1.83.0), libc6 (>= 2.38), libgcc-s1 (>= 4.0), libgdal34t64 (>= 3.4.0), libglu1-mesa | libglu1, libgomp1 (>= 6), libgsl27 (>= 2.7.1), libgslcblas0 (>= 2.7.1), libhdf5-103-1t64, liblz4-1 (>= 0.0~r130), libopencv-core406t64 (>= 4.6.0+dfsg), libopencv-features2d406t64 (>= 4.6.0+dfsg), libopencv-imgcodecs406t64 (>= 4.6.0+dfsg), libopencv-imgproc406t64 (>= 4.6.0+dfsg), libopengl0, libstdc++6 (>= 13.1), libyaml-cpp0.8 (>= 0.7.0), ocl-icd-libopencl1 | libopencl-1.1-1 | libopencl1, ocl-icd-libopencl1 | libopencl1
+Filename: ./lvr2_25.2.0_amd64.deb
+Size: 10078658
+MD5sum: 77253666146de5f1f0f643f140113638
+SHA1: df4984d9900a9a17ba60e1394a29273a41948854
+SHA256: d2ead883196aa00fed7afebe4501afd62d3c261dde2fb2e0324ffa0b7cbd5957
+Section: devel
+Priority: optional
+Description: lvr2 built using CMake
+
 Package: rmagine-core
 Version: 2.3.2
 Architecture: amd64

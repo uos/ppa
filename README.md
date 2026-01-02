@@ -3,8 +3,9 @@
 ## Setup
 
 ```sh
-curl -s --compressed "https://uos.github.io/ppa/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/uos.gpg >/dev/null
-sudo curl -s --compressed -o /etc/apt/sources.list.d/uos.list "https://uos.github.io/ppa/uos.list"
-
+curl -fsSL "https://uos.github.io/ppa/KEY.gpg" | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/uos-archive-keyring.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/uos-archive-keyring.gpg] https://uos.github.io/ppa ./" \
+  | sudo tee /etc/apt/sources.list.d/uos.list
 sudo apt update
 ```
