@@ -1,0 +1,1 @@
+deb [signed-by=/etc/apt/trusted.gpg.d/uos-archive-keyring.gpg] https://uos.github.io/ppa/noble./
