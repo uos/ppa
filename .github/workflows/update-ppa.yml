@@ -1,0 +1,73 @@
+name: Update PPA
+
+on:
+  push:
+    paths:
+      - 'ubuntu/pool/**.deb'
+  workflow_dispatch:
+
+jobs:
+  update-ppa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apt-utils gnupg gzip
+
+      - name: Import GPG private key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: |
+          if [ -z "${GPG_PRIVATE_KEY:-}" ]; then
+            echo "No GPG_PRIVATE_KEY secret set, signing will fail if required";
+          else
+            if echo "$GPG_PRIVATE_KEY" | grep -q '-----BEGIN PGP PRIVATE KEY BLOCK-----'; then
+              echo "$GPG_PRIVATE_KEY" > private.key.asc
+            else
+              echo "$GPG_PRIVATE_KEY" | base64 --decode > private.key.asc
+            fi
+            mkdir -p ~/.gnupg
+            chmod 700 ~/.gnupg
+            gpg --batch --import private.key.asc
+            rm -f private.key.asc
+          fi
+
+      - name: Run update script
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_KEY: chsieh@uos.de
+        run: |
+          ./scripts/update-ppa.sh
+
+      - name: Remove imported GPG keys from runner
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: |
+          if [ -z "${GPG_PRIVATE_KEY:-}" ]; then
+            echo "No GPG_PRIVATE_KEY set; nothing to clean"
+          else
+            gpg --batch --yes --delete-secret-keys 'chsieh@uos.de' || true
+            gpg --batch --yes --delete-keys 'chsieh@uos.de' || true
+            rm -rf ~/.gnupg || true
+            echo "GPG key(s) removed from runner"
+          fi
+
+      - name: Commit and push generated dists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ubuntu/dists || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "ci: regenerate ppa dists for $GITHUB_SHA"
+          git push
